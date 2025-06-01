@@ -1,5 +1,6 @@
 require("src.utils")
 require("src.input")
+require("src.res")
 require("src.sm")
 
 local canvas

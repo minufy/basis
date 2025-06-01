@@ -9,7 +9,6 @@ function Game:init()
 end
 
 function Game:draw()
-    love.graphics.setBackgroundColor(0.5, 0.5, 1)
     for _, object in pairs(self.objects) do
         object:draw()
     end
