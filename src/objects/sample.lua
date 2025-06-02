@@ -10,8 +10,6 @@ function Sample:init()
 
     self.x = Res.w/2
     self.y = Res.h/2
-    self.cx = self.w/2
-    self.cy = self.h/2
 
     self.tag = "sample"
 end
