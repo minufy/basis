@@ -2,10 +2,10 @@ local Scene = require("src.scene")
 
 local Game = Scene:new()
 
-local Sample = require("src.objects.sample")
+local Player = require("src.objects.player")
 
 function Game:init()
-    self:add(Sample)
+    self:add(Player)
 end
 
 function Game:draw()

@@ -1,27 +1,27 @@
 local Object = require("src.object")
 
-local Sample = Object:new()
+local Player = Object:new()
 
-local img = love.graphics.newImage("assets/imgs/sample.png")
+local img = love.graphics.newImage("assets/imgs/player.png")
 
-function Sample:init()
+function Player:init()
     self.w = img:getWidth()
     self.h = img:getHeight()
 
     self.x = Res.w/2
     self.y = Res.h/2
 
-    self.tag = "sample"
+    self.tag = "player"
 end
 
-function Sample:draw()
+function Player:draw()
     love.graphics.draw(img, self.x, self.y)
 end
 
-function Sample:update(dt)
+function Player:update(dt)
     if Input.jump.pressed then
         print(dt)
     end
 end
 
-return Sample
+return Player
