@@ -39,6 +39,12 @@ function Game:shake(dur)
 end
 
 function Game:update(dt)
+    if self.camera_shake.dur > 0.1 then
+        self.camera_shake.x = math.random(-self.camera_shake.dur, self.camera_shake.dur)
+        self.camera_shake.y = math.random(-self.camera_shake.dur, self.camera_shake.dur)
+    end
+    self.camera_shake.dur = self.camera_shake.dur+(0-self.camera_shake.dur)*0.2*dt
+
     for _, object in pairs(self.objects) do
         object:update(dt)
     end
