@@ -17,7 +17,7 @@ function Sample:init()
 end
 
 function Sample:draw()
-    love.graphics.draw(img, self.x, self.y, 0, 1, 1, self.cx, self.cy)
+    love.graphics.draw(img, self.x, self.y)
 end
 
 function Sample:update(dt)
