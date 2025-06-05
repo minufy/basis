@@ -1,5 +1,6 @@
 require("src.utils")
 require("src.input")
+require("src.timer")
 require("src.res")
 require("src.sm")
 
@@ -33,6 +34,8 @@ function love.update(dt)
     if dt > 1.5 then
         dt = 1.5
     end
+
     UpdateInputs()
+    UpdateTimers(dt)
     SM:update(dt)
 end
