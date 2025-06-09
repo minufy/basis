@@ -36,7 +36,7 @@ end
 
 function Scene:col(a, tag)
     for _, b in ipairs(self.objects) do
-        if b.col and b.tag == tag then
+        if b.tag == tag then
             if a ~= b and self:check_col(a, b) then
                 return b
             end
