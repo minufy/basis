@@ -11,7 +11,9 @@ function Player:init()
     self.x = Res.w/2
     self.y = Res.h/2
 
-    self.tag = "player"
+    self.prop = {
+        ["player"] = true,
+    }
 end
 
 function Player:draw()

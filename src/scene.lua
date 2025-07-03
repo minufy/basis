@@ -34,9 +34,9 @@ function Scene:check_dist(a, b, d)
     return math.sqrt((ax-bx)^2+(ay-by)^2) <= d
 end
 
-function Scene:col(a, tag)
+function Scene:col(a, prop)
     for _, b in ipairs(self.objects) do
-        if b.tag == tag then
+        if b.prop[prop] then
             if a ~= b and self:check_col(a, b) then
                 return b
             end
@@ -45,9 +45,9 @@ function Scene:col(a, tag)
     return nil
 end
 
-function Scene:dist(a, tag, d)
+function Scene:dist(a, prop, d)
     for _, b in ipairs(self.objects) do
-        if b.tag == tag then
+        if b.prop[prop] then
             if a ~= b and self:check_dist(a, b, d) then
                 return b
             end
@@ -56,10 +56,10 @@ function Scene:dist(a, tag, d)
     return nil
 end
 
-function Scene:move_x(a, x, tag)
+function Scene:move_x(a, x, prop)
     a.x = a.x+x
-    local col = self:col(a, tag)
-    if col ~= nil then
+    local col = self:col(a, prop)
+    if col then
         if x > 0 then
             a.x = col.x-a.w
         else
@@ -69,10 +69,10 @@ function Scene:move_x(a, x, tag)
     return col
 end
 
-function Scene:move_y(a, y, tag)
+function Scene:move_y(a, y, prop)
     a.y = a.y+y
-    local col = self:col(a, tag)
-    if col ~= nil then
+    local col = self:col(a, prop)
+    if col then
         if y > 0 then
             a.y = col.y-a.h
         else
