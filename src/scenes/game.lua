@@ -1,11 +1,10 @@
 local Scene = require("src.scene")
 
-local Game = Scene:extend()
+local Game = Scene:new()
 
 local Player = require("src.objects.player")
 
-function Game:new()
-    self.super:new()
+function Game:init()
     self:add(Player)
 end
 

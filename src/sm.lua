@@ -5,7 +5,9 @@ function SM:init()
 end
 
 function SM:load_scene(name)
-    self.scene = require("src.scenes."..name)()
+    self.scene = require("src.scenes."..name):new()
+    self.scene.objects = {}
+    self.scene:init()
 end
 
 function SM:draw()

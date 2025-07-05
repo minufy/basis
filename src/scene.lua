@@ -1,17 +1,12 @@
-local Object = require("modules.classic")
+local Object = require("src.object")
 
-local Scene = Object:extend()
-
-function Scene:new()
-    self.objects = {}
-end
+local Scene = Object:new()
 
 function Scene:add(object, ...)
-    local o = object(...)
+    local o = object:new()
     o.sc = self
-    if o.prop == nil then
-        o.prop = {}
-    end
+    o.prop = {}
+    o:init(...)
     table.insert(self.objects, o)
     return o
 end
