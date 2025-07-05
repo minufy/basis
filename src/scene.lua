@@ -1,11 +1,17 @@
-local Object = require("src.object")
+local Object = require("modules.classic")
 
-local Scene = Object:new()
+local Scene = Object:extend()
+
+function Scene:new()
+    self.objects = {}
+end
 
 function Scene:add(object, ...)
-    local o = object:new()
+    local o = object(...)
     o.sc = self
-    o:init(...)
+    if o.prop == nil then
+        o.prop = {}
+    end
     table.insert(self.objects, o)
     return o
 end
@@ -35,7 +41,7 @@ function Scene:check_dist(a, b, d)
 end
 
 function Scene:col(a, prop)
-    for _, b in ipairs(self.objects) do
+    for i, b in ipairs(self.objects) do
         if b.prop[prop] then
             if a ~= b and self:check_col(a, b) then
                 return b
@@ -46,7 +52,7 @@ function Scene:col(a, prop)
 end
 
 function Scene:dist(a, prop, d)
-    for _, b in ipairs(self.objects) do
+    for i, b in ipairs(self.objects) do
         if b.prop[prop] then
             if a ~= b and self:check_dist(a, b, d) then
                 return b

@@ -5,13 +5,15 @@ function SM:init()
 end
 
 function SM:load_scene(name)
-    self.scene = require("src.scenes."..name):new()
-    self.scene.objects = {}
-    self.scene:init()
+    self.scene = require("src.scenes."..name)()
 end
 
 function SM:draw()
+    love.graphics.push()
+    
     self.scene:draw()
+
+    love.graphics.pop()
 end
 
 function SM:update(dt)

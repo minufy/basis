@@ -1,8 +1,9 @@
-require("src.utils")
+require("src.camera")
 require("src.input")
-require("src.timer")
 require("src.res")
 require("src.sm")
+require("src.timer")
+require("src.utils")
 
 local canvas
 

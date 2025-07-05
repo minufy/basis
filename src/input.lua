@@ -15,10 +15,10 @@ Input.mouse_l = new()
 Input.mouse_r = new()
 
 function UpdateInputs()
-    for _, action in pairs(Input) do
+    for i, action in pairs(Input) do
         if action.keys then
             local down = false
-            for _, key in ipairs(action.keys) do
+            for i, key in ipairs(action.keys) do
                 down = down or love.keyboard.isDown(key)
             end
             local up = not down
