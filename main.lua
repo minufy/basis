@@ -1,3 +1,4 @@
+require("src.assets")
 require("src.camera")
 require("src.input")
 require("src.res")

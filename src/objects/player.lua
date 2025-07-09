@@ -2,11 +2,9 @@ local Object = require("src.object")
 
 local Player = Object:new()
 
-local img = love.graphics.newImage("assets/imgs/player.png")
-
 function Player:init()
-    self.w = img:getWidth()
-    self.h = img:getHeight()
+    self.w = Images["player"]:getWidth()
+    self.h = Images["player"]:getHeight()
 
     self.x = Res.w/2
     self.y = Res.h/2
@@ -17,7 +15,7 @@ function Player:init()
 end
 
 function Player:draw()
-    love.graphics.draw(img, self.x, self.y)
+    love.graphics.draw(Images["player"], self.x, self.y)
 end
 
 function Player:update(dt)
