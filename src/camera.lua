@@ -7,11 +7,11 @@ Camera.x = 0
 Camera.y = 0
 Camera.dx = 0.1
 Camera.dy = 0.1
-Camera.shaker = {}
-Camera.shaker.d = 0.2
-Camera.shaker.x = 0
-Camera.shaker.y = 0
-Camera.shaker.dur = 0
+Camera.s = {}
+Camera.s.d = 0.2
+Camera.s.x = 0
+Camera.s.y = 0
+Camera.s.dur = 0
 
 function Camera:set(x, y)
     self.tx = x
@@ -24,23 +24,23 @@ function Camera:offset(x, y)
 end
 
 function Camera:shake(dur)
-    self.shaker.dur = dur
+    self.s.dur = dur
 end
 
 function Camera:apply()
-    if self.shaker.dur > 0.1 then
-        love.graphics.translate(self.shaker.x, self.shaker.y)
+    if self.s.dur > 0.1 then
+        love.graphics.translate(self.s.x, self.s.y)
     end
     Res.x = self.ox-self.x
     Res.y = self.ox-self.y
 end
 
 function Camera:update(dt)
-    if self.shaker.dur > 0.1 then
-        self.shaker.x = math.random(-self.shaker.dur, self.shaker.dur)
-        self.shaker.y = math.random(-self.shaker.dur, self.shaker.dur)
+    if self.s.dur > 0.1 then
+        self.s.x = math.random(-self.s.dur, self.s.dur)
+        self.s.y = math.random(-self.s.dur, self.s.dur)
     end
-    self.shaker.dur = self.shaker.dur+(0-self.shaker.dur)*self.shaker.d*dt
+    self.s.dur = self.s.dur+(0-self.s.dur)*self.s.d*dt
     
     self.x = self.x+(self.tx-self.x)*self.dx*dt
     self.y = self.y+(self.ty-self.y)*self.dy*dt

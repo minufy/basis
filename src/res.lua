@@ -6,7 +6,18 @@ Res.y = 0
 
 function Res:init()
     local w, h = love.graphics.getDimensions()
-    self.zoom = w/self.w
+    Res:resized(w, h)
+    Res.canvas = love.graphics.newCanvas(self.w, self.h)
+end
+
+function Res:before()
+    love.graphics.setCanvas(self.canvas)
+    love.graphics.clear()
+end
+
+function Res:after()
+    love.graphics.setCanvas()
+    love.graphics.draw(self.canvas, 0, 0, 0, self.zoom, self.zoom)
 end
 
 function Res:getX()
@@ -19,4 +30,8 @@ end
 
 function Res:apply()
     love.graphics.translate(self.x, self.y)
+end
+
+function Res:resized(w, h)
+    self.zoom = w/self.w
 end
