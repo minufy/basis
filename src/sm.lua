@@ -13,11 +13,14 @@ end
 function SM:draw()
     love.graphics.push()
     
+    Camera:apply()
+    Res:apply()
     self.scene:draw()
 
     love.graphics.pop()
 end
 
 function SM:update(dt)
+    Camera:update(dt)
     self.scene:update(dt)
 end
