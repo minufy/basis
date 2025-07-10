@@ -11,8 +11,8 @@ local function new(keys)
 end
 
 Input.jump = new({"w", "up", "space"})
-Input.mouse_l = new()
-Input.mouse_r = new()
+Input.lmb = new()
+Input.rmb = new()
 
 function UpdateInputs()
     for i, action in pairs(Input) do
@@ -31,15 +31,15 @@ function UpdateInputs()
     
     local down = love.mouse.isDown(1)
     local up = not down
-    Input.mouse_l.pressed = down and not Input.mouse_l.down
-    Input.mouse_l.released = up and not Input.mouse_l.up
-    Input.mouse_l.down = down
-    Input.mouse_l.up = up
+    Input.lmb.pressed = down and not Input.lmb.down
+    Input.lmb.released = up and not Input.lmb.up
+    Input.lmb.down = down
+    Input.lmb.up = up
 
     local down = love.mouse.isDown(2)
     local up = not down
-    Input.mouse_r.pressed = down and not Input.mouse_r.down
-    Input.mouse_r.released = up and not Input.mouse_r.up
-    Input.mouse_r.down = down
-    Input.mouse_r.up = up
+    Input.rmb.pressed = down and not Input.rmb.down
+    Input.rmb.released = up and not Input.rmb.up
+    Input.rmb.down = down
+    Input.rmb.up = up
 end

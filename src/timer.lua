@@ -1,19 +1,20 @@
 Timer = {}
+Timer.timers = {}
 
-function AddTimer(time, action)
-    table.insert(Timer, {
+function Timer:add(time, action)
+    table.insert(self.timers, {
         time = time,
         timer = 0,
         action = action,
     })
 end
 
-function UpdateTimers(dt)
-    for i, item in pairs(Timer) do
+function Timer:update(dt)
+    for i, item in pairs(self.timers) do
         item.timer = item.timer+dt
         if item.timer >= item.time then
             item.action()
-            table.remove(Timer, i)
+            table.remove(self.timers, i)
         end
     end
 end

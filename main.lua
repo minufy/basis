@@ -12,7 +12,7 @@ function love.load()
 
     FONT = love.graphics.newFont("assets/fonts/Galmuri9.ttf", 20)
     love.graphics.setFont(FONT)
-    
+
     Res:init()
     SM:init()
 end
@@ -26,7 +26,7 @@ end
 function love.update(dt)
     dt = math.min(1.5, dt*60)
     UpdateInputs()
-    UpdateTimers(dt)
+    Timer:update(dt)
     SM:update(dt)
 end
 
