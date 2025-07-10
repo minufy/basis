@@ -30,6 +30,6 @@ function love.update(dt)
     SM:update(dt)
 end
 
-function love.resized(w, h)
-    Res:resized(w, h)
+function love.resize(w, h)
+    Res:resize(w, h)
 end
