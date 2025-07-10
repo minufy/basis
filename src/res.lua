@@ -6,8 +6,8 @@ Res.y = 0
 
 function Res:init()
     local w, h = love.graphics.getDimensions()
-    Res:resized(w, h)
-    Res.canvas = love.graphics.newCanvas(self.w, self.h)
+    self:resized(w, h)
+    self.canvas = love.graphics.newCanvas(self.w, self.h)
 end
 
 function Res:before()
