@@ -1,4 +1,3 @@
-require("src.assets")
 require("src.camera")
 require("src.input")
 require("src.res")
@@ -7,6 +6,7 @@ require("src.timer")
 require("src.utils")
 
 function love.load()
+    require("src.assets")
     love.graphics.setDefaultFilter("nearest", "nearest")
     love.graphics.setLineStyle("rough")
 

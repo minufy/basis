@@ -29,6 +29,7 @@ function Res:getY()
 end
 
 function Res:apply()
+    Camera:apply()
     love.graphics.translate(self.x, self.y)
 end
 

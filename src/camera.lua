@@ -32,7 +32,7 @@ function Camera:apply()
         love.graphics.translate(self.s.x, self.s.y)
     end
     Res.x = self.ox-self.x
-    Res.y = self.ox-self.y
+    Res.y = self.oy-self.y
 end
 
 function Camera:update(dt)

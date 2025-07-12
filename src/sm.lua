@@ -13,7 +13,6 @@ end
 function SM:draw()
     love.graphics.push()
     
-    Camera:apply()
     Res:apply()
     self.scene:draw()
 
