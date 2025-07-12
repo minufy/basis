@@ -1,6 +1,11 @@
 local Object = require("src.object")
 
+---@class Scene:Object
 local Scene = Object:new()
+
+function Scene:init_base()
+    self.objects = {}
+end
 
 function Scene:add(object, ...)
     local o = object:new()

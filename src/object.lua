@@ -1,22 +1,21 @@
+---@class Object
 local Object = {}
 
-function Object:new(obj)
-    obj = obj or {}
-    setmetatable(obj, self)
+---@return Object
+function Object:new(o)
+    o = o or {}
+    setmetatable(o, self)
     self.__index = self
-    return obj
+    return o
 end
 
 function Object:init()
-    
 end
 
 function Object:update(dt)
-  -- update object properties
 end
 
 function Object:draw()
-  -- draw object on screen
 end
 
 return Object

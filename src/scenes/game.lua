@@ -1,5 +1,6 @@
 local Scene = require("src.scene")
 
+---@class Game:Scene
 local Game = Scene:new()
 
 local Player = require("src.objects.player")
