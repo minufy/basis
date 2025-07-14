@@ -20,5 +20,5 @@ local function newAudio(name, volume)
     return audio
 end
 
-Images["player"] = newImage("player")
--- Audio["jump"] = newAudio("jump")
+Images.player = newImage("player")
+-- Audio.jump = newAudio("jump")

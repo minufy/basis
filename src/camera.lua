@@ -27,12 +27,16 @@ function Camera:shake(dur)
     self.s.dur = dur
 end
 
-function Camera:apply()
+function Camera:start()
+    love.graphics.push()
     if self.s.dur > 0.1 then
         love.graphics.translate(self.s.x, self.s.y)
     end
-    Res.x = self.ox-self.x
-    Res.y = self.oy-self.y
+    love.graphics.translate(self.ox-self.x, self.oy-self.y)
+end
+
+function Camera:stop()
+    love.graphics.pop()
 end
 
 function Camera:update(dt)

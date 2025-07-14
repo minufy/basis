@@ -5,6 +5,24 @@ local Scene = Object:new()
 
 function Scene:init_base()
     self.objects = {}
+    self.layers = {
+        {},
+    }
+end
+
+function Scene:update_base(dt)
+    for i, object in pairs(self.objects) do
+        object:update(dt)
+        if object.prop["remove"] then
+            table.remove(self.objects, i)
+        end
+    end
+end
+
+function Scene:draw_layer(layer)
+    for i, object in pairs(self.layers[layer]) do
+        object:draw()
+    end
 end
 
 function Scene:add(object, ...)
@@ -16,13 +34,9 @@ function Scene:add(object, ...)
     return o
 end
 
-function Scene:remove(object)
-    for i, o in ipairs(self.objects) do
-        if o == object then
-            table.remove(self.objects, i)
-            return
-        end
-    end
+function Scene:add_layer(o, layer)
+    layer = layer or 1
+    table.insert(self.layers[layer], o)
 end
 
 function Scene:check_col(a, b)
