@@ -32,7 +32,7 @@ function Scene:add(object, ...)
     o:init(...)
     table.insert(self.objects, o)
     if o.layer == nil then o.layer = 1 end
-    table.insert(self.layers[o.layer])
+    table.insert(self.layers[o.layer], o)
     return o
 end
 
