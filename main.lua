@@ -6,9 +6,9 @@ require("src.timer")
 require("src.utils")
 
 function love.load()
-    require("src.assets")
     love.graphics.setDefaultFilter("nearest", "nearest")
     love.graphics.setLineStyle("rough")
+    require("src.assets")
 
     FONT = love.graphics.newFont("assets/fonts/Galmuri9.ttf", 20)
     love.graphics.setFont(FONT)
