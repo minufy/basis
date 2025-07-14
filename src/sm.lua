@@ -11,15 +11,11 @@ function SM:load_scene(name)
 end
 
 function SM:draw()
-    love.graphics.push()
-    
-    Res:apply()
     self.scene:draw()
-
-    love.graphics.pop()
 end
 
 function SM:update(dt)
     Camera:update(dt)
+    self.scene:update_base(dt)
     self.scene:update(dt)
 end

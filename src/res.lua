@@ -1,8 +1,6 @@
 Res = {}
 Res.w = 1280/2
 Res.h = 720/2
-Res.x = 0
-Res.y = 0
 
 function Res:init()
     local w, h = love.graphics.getDimensions()
@@ -21,16 +19,11 @@ function Res:after()
 end
 
 function Res:getX()
-    return love.mouse.getX()/self.zoom-self.x
+    return love.mouse.getX()/self.zoom-Camera.x
 end
 
 function Res:getY()
-    return love.mouse.getY()/self.zoom-self.y
-end
-
-function Res:apply()
-    Camera:apply()
-    love.graphics.translate(self.x, self.y)
+    return love.mouse.getY()/self.zoom-Camera.y
 end
 
 function Res:resize(w, h)
