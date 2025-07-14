@@ -31,10 +31,8 @@ function Scene:add(object, ...)
     o.prop = {}
     o:init(...)
     table.insert(self.objects, o)
-    if o.z == nil then
-        o.z = 1
-    end
-    table.insert(self.layers[o.z])
+    if o.layer == nil then o.layer = 1 end
+    table.insert(self.layers[o.layer])
     return o
 end
 
