@@ -31,12 +31,11 @@ function Scene:add(object, ...)
     o.prop = {}
     o:init(...)
     table.insert(self.objects, o)
+    if o.z == nil then
+        o.z = 1
+    end
+    table.insert(self.layers[o.z])
     return o
-end
-
-function Scene:add_layer(o, layer)
-    layer = layer or 1
-    table.insert(self.layers[layer], o)
 end
 
 function Scene:check_col(a, b)

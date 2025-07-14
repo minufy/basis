@@ -9,6 +9,7 @@ function Player:init()
 
     self.x = Res.w/2
     self.y = Res.h/2
+    self.z = 1
 
     self.prop = {
         player = true,

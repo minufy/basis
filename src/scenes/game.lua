@@ -6,7 +6,7 @@ local Game = Scene:new()
 local Player = require("src.objects.player")
 
 function Game:init()
-    self:add_layer(self:add(Player))
+    self:add(Player)
 end
 
 function Game:draw()
