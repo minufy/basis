@@ -11,7 +11,7 @@ function Player:init()
     self.y = Res.h/2
 
     self.prop = {
-        ["player"] = true,
+        player = true,
     }
 end
 
