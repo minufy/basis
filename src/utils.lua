@@ -7,3 +7,6 @@ end
 function a(rgb, a)
     return {rgb[1], rgb[2], rgb[3], a}
 end
+function ResetColor()
+    love.graphics.setColor(1, 1, 1)
+end

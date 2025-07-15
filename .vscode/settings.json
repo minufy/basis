@@ -2,7 +2,8 @@
     "Lua.diagnostics.globals": [
         "love",
         "rgb",
-        "rgba"
+        "rgba",
+        "a"
     ],
     "Lua.workspace.library": [
         "${addons}/love2d/module/library"
