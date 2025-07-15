@@ -8,7 +8,7 @@ Camera.y = 0
 Camera.dx = 0.1
 Camera.dy = 0.1
 Camera.s = {}
-Camera.s.d = 0.2
+Camera.s.d = 0.1
 Camera.s.x = 0
 Camera.s.y = 0
 Camera.s.dur = 0
@@ -21,6 +21,8 @@ end
 function Camera:offset(x, y)
     self.ox = x
     self.oy = y
+    self.x = self.ox-self.tx
+    self.y = self.oy-self.ty
 end
 
 function Camera:shake(dur)
@@ -32,7 +34,7 @@ function Camera:start()
     if self.s.dur > 0.1 then
         love.graphics.translate(self.s.x, self.s.y)
     end
-    love.graphics.translate(self.ox-self.x, self.oy-self.y)
+    love.graphics.translate(self.x, self.y)
 end
 
 function Camera:stop()
@@ -46,6 +48,6 @@ function Camera:update(dt)
     end
     self.s.dur = self.s.dur+(0-self.s.dur)*self.s.d*dt
     
-    self.x = self.x+(self.tx-self.x)*self.dx*dt
-    self.y = self.y+(self.ty-self.y)*self.dy*dt
+    self.x = self.x+(self.ox+self.tx-self.x)*self.dx*dt
+    self.y = self.y+(self.oy+self.ty-self.y)*self.dy*dt
 end
