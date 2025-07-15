@@ -10,10 +10,10 @@ function Scene:init_base()
     }
 end
 
-function Scene:update_base(dt)
+function Scene:update_objects(dt)
     for i, object in pairs(self.objects) do
         object:update(dt)
-        if object.prop["remove"] then
+        if object.prop.remove then
             table.remove(self.objects, i)
         end
     end

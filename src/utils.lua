@@ -1,7 +1,6 @@
-function rgb(r, g, b)
-    return {r/255, g/255, b/255}
-end
+rgb = love.math.colorFromBytes
+rgba = love.math.colorFromBytes
 
-function rgba(r, g, b, a)
-    return {r/255, g/255, b/255, a}
+function ResetColor()
+    love.graphics.setColor(1, 1, 1)
 end
