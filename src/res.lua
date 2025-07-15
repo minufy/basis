@@ -10,13 +10,11 @@ end
 
 function Res:before()
     love.graphics.setCanvas(self.canvas)
-    love.graphics.setBlendMode("alpha")
     love.graphics.clear()
 end
 
 function Res:after()
     love.graphics.setCanvas()
-    love.graphics.setBlendMode("alpha", "premultiplied")
     love.graphics.draw(self.canvas, 0, 0, 0, self.zoom, self.zoom)
 end
 
