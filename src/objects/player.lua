@@ -10,7 +10,6 @@ function Player:init()
     self.x = Res.w/2
     self.y = Res.h/2
     
-    self.layer = 1
     self.prop = {
         player = true,
     }
