@@ -1,38 +1,38 @@
 Camera = {}
-Camera.ox = 0
-Camera.oy = 0
-Camera.tx = 0
-Camera.ty = 0
+Camera.offset_x = 0
+Camera.offset_y = 0
+Camera.target_x = 0
+Camera.target_y = 0
 Camera.x = 0
 Camera.y = 0
-Camera.dx = 0.1
-Camera.dy = 0.1
-Camera.s = {}
-Camera.s.d = 0.1
-Camera.s.x = 0
-Camera.s.y = 0
-Camera.s.dur = 0
+Camera.damp_x = 0.1
+Camera.damp_y = 0.1
+Camera.shake = {}
+Camera.shake.damp = 0.1
+Camera.shake.x = 0
+Camera.shake.y = 0
+Camera.shake.duration = 0
 
 function Camera:set(x, y)
-    self.tx = x
-    self.ty = y
+    self.target_x = x
+    self.target_y = y
 end
 
 function Camera:offset(x, y)
-    self.ox = x
-    self.oy = y
-    self.x = self.ox-self.tx
-    self.y = self.oy-self.ty
+    self.offset_x = x
+    self.offset_y = y
+    self.x = self.offset_x-self.target_x
+    self.y = self.offset_y-self.target_y
 end
 
-function Camera:shake(dur)
-    self.s.dur = dur
+function Camera:set_shake(dur)
+    self.shake.duration = dur
 end
 
 function Camera:start()
     love.graphics.push()
-    if self.s.dur > 0.1 then
-        love.graphics.translate(self.s.x, self.s.y)
+    if self.shake.duration > 0.1 then
+        love.graphics.translate(self.shake.x, self.shake.y)
     end
     love.graphics.translate(self.x, self.y)
 end
@@ -42,12 +42,12 @@ function Camera:stop()
 end
 
 function Camera:update(dt)
-    if self.s.dur > 0.1 then
-        self.s.x = math.random(-self.s.dur, self.s.dur)
-        self.s.y = math.random(-self.s.dur, self.s.dur)
+    if self.shake.duration > 0.1 then
+        self.shake.x = math.random(-self.shake.duration, self.shake.duration)
+        self.shake.y = math.random(-self.shake.duration, self.shake.duration)
     end
-    self.s.dur = self.s.dur+(0-self.s.dur)*self.s.d*dt
+    self.shake.duration = self.shake.duration+(0-self.shake.duration)*self.shake.damp*dt
     
-    self.x = self.x+(self.ox+self.tx-self.x)*self.dx*dt
-    self.y = self.y+(self.oy+self.ty-self.y)*self.dy*dt
+    self.x = self.x+(self.offset_x+self.target_x-self.x)*self.damp_x*dt
+    self.y = self.y+(self.offset_y+self.target_y-self.y)*self.damp_y*dt
 end
