@@ -21,6 +21,9 @@ end
 function Camera:offset(x, y)
     self.offset_x = x
     self.offset_y = y
+end
+
+function Camera:snap_back()
     self.x = self.offset_x-self.target_x
     self.y = self.offset_y-self.target_y
 end
