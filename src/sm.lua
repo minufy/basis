@@ -16,6 +16,5 @@ end
 
 function SM:update(dt)
     Camera:update(dt)
-    self.scene:update_objects(dt)
     self.scene:update(dt)
 end
