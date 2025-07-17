@@ -12,7 +12,7 @@ end
 function Game:draw()
     Camera:start()
 
-    self:draw_objects(1)
+    self:draw_objects()
 
     Camera:stop()
     
@@ -22,7 +22,7 @@ function Game:draw()
 end
 
 function Game:update(dt)
-    
+    self:update_objects(dt)
 end
 
 return Game
