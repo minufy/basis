@@ -4,7 +4,7 @@ end
 function rgba(r, g, b, a)
     return {r/255, g/255, b/255, a}
 end
-function a(rgb, a)
+function alpha(rgb, a)
     return {rgb[1], rgb[2], rgb[3], a}
 end
 function ResetColor()

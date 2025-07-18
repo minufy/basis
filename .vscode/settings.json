@@ -3,7 +3,7 @@
         "love",
         "rgb",
         "rgba",
-        "a"
+        "alpha"
     ],
     "Lua.workspace.library": [
         "${addons}/love2d/module/library"
