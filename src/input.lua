@@ -25,7 +25,7 @@ function UpdateInputs()
             action.pressed = down and not action.down
             action.released = up and not action.up
             action.down = down
-            action.up = up     
+            action.up = up
         end
     end
     
