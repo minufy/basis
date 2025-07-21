@@ -6,22 +6,17 @@ function Scene:init_base()
 end
 
 function Scene:update_objects(dt)
-    for i, object in pairs(self.objects) do
-        object:update(dt)
+    for i = #self.objects, 1, -1 do
+        self.objects[i]:update(dt)
+        if self.objects[i].prop.remove then
+            table.remove(self.objects, i)
+        end
     end
 end
 
 function Scene:draw_objects(dt)
     for i, object in pairs(self.objects) do
         object:draw()
-    end
-end
-
-function Scene:remove(a)
-    for i, object in pairs(self.objects) do
-        if object == a then
-            table.remove(self.objects, i)
-        end
     end
 end
 
