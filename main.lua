@@ -4,15 +4,16 @@ require("src.res")
 require("src.sm")
 require("src.timer")
 require("src.utils")
+Object = require("src.object")
 
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
     love.graphics.setLineStyle("rough")
-    require("src.assets")
-
+    
     FONT = love.graphics.newFont("assets/fonts/Galmuri9.ttf", 20)
     love.graphics.setFont(FONT)
-
+    
+    require("src.assets")
     Res:init()
     SM:init()
 end

@@ -1,5 +1,3 @@
-local Object = require("src.object")
-
 ---@class Scene:Object
 local Scene = Object:new()
 

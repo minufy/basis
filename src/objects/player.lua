@@ -1,5 +1,3 @@
-local Object = require("src.object")
-
 ---@class Player:Object
 local Player = Object:new()
 
