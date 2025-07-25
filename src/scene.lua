@@ -9,8 +9,9 @@ function Scene:update_objects(dt)
     for i = #self.objects, 1, -1 do
         if self.objects[i].prop.remove then
             table.remove(self.objects, i)
+        else
+            self.objects[i]:update(dt)
         end
-        self.objects[i]:update(dt)
     end
 end
 
