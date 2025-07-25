@@ -5,7 +5,6 @@ require("src.res")
 require("src.sm")
 require("src.timer")
 require("src.utils")
-require("src.assets")
 
 Object = require("src.object")
 
@@ -18,6 +17,7 @@ function love.load()
     FONT = love.graphics.newFont("assets/fonts/Galmuri9.ttf", 20)
     love.graphics.setFont(FONT)
 
+    require("src.assets")
     LoadAssets()
 
     Res:init()
