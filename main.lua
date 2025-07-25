@@ -10,7 +10,6 @@ require("src.assets")
 Object = require("src.object")
 
 local lurker = require("modules.lurker")
-lurker.postswap = function(f) Log:log("File " .. f .. " was swapped") end
 
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
@@ -37,7 +36,6 @@ function love.update(dt)
     dt = math.min(1.5, dt*60)
     
     if CONSOLE then
-        lurker.update()
         CheckReload()
     end
     
@@ -50,6 +48,7 @@ end
 function CheckReload()
     if Input.console_ctrl.down and Input.console_reload.pressed then
         LoadAssets()
+        lurker.scan()
         Log:log("reload complete.")
     end
 end
