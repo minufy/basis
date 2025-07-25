@@ -14,6 +14,9 @@ Input.jump = new({"w", "up", "space"})
 Input.lmb = new()
 Input.rmb = new()
 
+Input.console_ctrl = new({"lctrl"})
+Input.console_reload = new({"r"})
+
 function UpdateInputs()
     for i, action in pairs(Input) do
         if action.keys then
