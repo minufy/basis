@@ -6,7 +6,7 @@ function Res:init()
     local w, h = love.graphics.getDimensions()
     self:resize(w, h)
     self.canvas = love.graphics.newCanvas(self.w, self.h, {
-        format = "rgba16f" -- lovejs color rounding fix
+        -- format = "rgba16f" -- lovejs color rounding fix
     })
 end
 
