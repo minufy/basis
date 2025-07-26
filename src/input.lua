@@ -15,7 +15,7 @@ Input.lmb = new()
 Input.rmb = new()
 
 Input.console_ctrl = new({"lctrl"})
-Input.console_reload = new({"r"})
+Input.console_reload = new({"1"})
 
 function UpdateInputs()
     for i, action in pairs(Input) do
