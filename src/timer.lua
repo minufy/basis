@@ -10,7 +10,8 @@ function Timer:add(time, action)
 end
 
 function Timer:update(dt)
-    for i, item in pairs(self.timers) do
+    for i=#self.timers, 1, -1 do
+        local item = self.timers[i]
         item.timer = item.timer+dt
         if item.timer >= item.time then
             item.action()
