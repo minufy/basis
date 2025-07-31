@@ -8,6 +8,7 @@ function Object:new(o)
     self.__index = self
     
     self.sc = nil
+    self.prop = {}
     
     return o
 end
