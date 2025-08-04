@@ -10,9 +10,12 @@ local function new(keys)
     }
 end
 
-Input.jump = new({"w", "up", "space"})
-Input.lmb = new()
-Input.rmb = new()
+Input.mb = {
+    new(),
+    new(),
+    new(),
+}
+Input.wheel = new()
 
 Input.console_ctrl = new({"lctrl"})
 Input.console_reload = new({"1"})
@@ -31,18 +34,26 @@ function UpdateInputs()
             action.up = up
         end
     end
-    
-    local down = love.mouse.isDown(1)
-    local up = not down
-    Input.lmb.pressed = down and not Input.lmb.down
-    Input.lmb.released = up and not Input.lmb.up
-    Input.lmb.down = down
-    Input.lmb.up = up
 
-    local down = love.mouse.isDown(2)
-    local up = not down
-    Input.rmb.pressed = down and not Input.rmb.down
-    Input.rmb.released = up and not Input.rmb.up
-    Input.rmb.down = down
-    Input.rmb.up = up
+    for i=1, 3 do
+        local down = love.mouse.isDown(i)
+        local up = not down
+        Input.mb[i].pressed = down and not Input.mb[i].down
+        Input.mb[i].released = up and not Input.mb[i].up
+        Input.mb[i].down = down
+        Input.mb[i].up = up
+    end
+end
+
+function UpdateWheelInput()
+    Input.wheel.up = false
+    Input.wheel.down = false
+end
+
+function love.wheelmoved(x, y)
+    if y > 0 then
+        Input.wheel.up = true
+    else
+        Input.wheel.down = true
+    end
 end

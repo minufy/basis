@@ -43,6 +43,7 @@ function love.update(dt)
     Timer:update(dt)
     SM:update(dt)
     Log:update(dt)
+    UpdateWheelInput()
 end
 
 function CheckReload()

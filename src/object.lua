@@ -7,6 +7,8 @@ function Object:new(o)
     setmetatable(o, self)
     self.__index = self
     
+    self.id = 0
+    self.z = 0
     self.sc = nil
     self.prop = {}
     

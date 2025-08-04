@@ -15,7 +15,8 @@ function Scene:update_objects(dt)
     end
 end
 
-function Scene:draw_objects(dt)
+function Scene:draw_objects()
+    self:sort_z()
     for i, object in pairs(self.objects) do
         object:draw()
     end
@@ -91,6 +92,13 @@ function Scene:move_y(a, y, prop)
         end
     end
     return col
+end
+
+function Scene:sort_z()
+    local o = #self.objects
+    table.sort(self.objects, function(a, b)
+        return a.z*o+a.id < b.z*o+b.id
+    end)
 end
 
 return Scene
