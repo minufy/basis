@@ -57,3 +57,11 @@ end
 function love.resize(w, h)
     Res:resize(w, h)
 end
+
+function love.wheelmoved(x, y)
+    if y > 0 then
+        Input.wheel.up = true
+    else
+        Input.wheel.down = true
+    end
+end

@@ -18,9 +18,7 @@ function Player:draw()
 end
 
 function Player:update(dt)
-    if Input.jump.pressed then
-        self.x = math.random(0, Res.w)
-    end
+
 end
 
 return Player

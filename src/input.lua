@@ -49,11 +49,3 @@ function UpdateWheelInput()
     Input.wheel.up = false
     Input.wheel.down = false
 end
-
-function love.wheelmoved(x, y)
-    if y > 0 then
-        Input.wheel.up = true
-    else
-        Input.wheel.down = true
-    end
-end
