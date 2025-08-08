@@ -7,6 +7,7 @@ require("src.timer")
 require("src.utils")
 
 Object = require("src.object")
+Base = require("src.objects.base")
 
 local lurker = require("modules.lurker")
 
@@ -16,6 +17,8 @@ function love.load()
     
     FONT = love.graphics.newFont("assets/fonts/Galmuri9.ttf", 20)
     love.graphics.setFont(FONT)
+
+    TILE_SIZE = 32
 
     require("src.assets")
     LoadAssets()

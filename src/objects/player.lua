@@ -1,7 +1,8 @@
----@class Player:Object
-local Player = Object:new()
+---@class Player:Base
+local Player = Base:new()
 
 function Player:init()
+    Base.init(self)
     self.w = Images.player:getWidth()
     self.h = Images.player:getHeight()
 
