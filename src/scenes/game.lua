@@ -6,6 +6,7 @@ local Game = Scene:new()
 local Player = require("src.objects.player")
 
 function Game:init()
+    Scene.init(self)
     self:add(Player)
 end
 
@@ -15,10 +16,8 @@ function Game:draw()
     self:draw_objects()
 
     Camera:stop()
-    
-    love.graphics.setColor(rgb(52, 255, 191))
+
     love.graphics.print("Test")
-    ResetColor()
 end
 
 function Game:update(dt)

@@ -6,7 +6,6 @@ end
 
 function SM:load_scene(name)
     self.scene = require("src.scenes."..name):new()
-    self.scene:init_base()
     self.scene:init()
 end
 

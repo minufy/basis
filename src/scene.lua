@@ -1,8 +1,9 @@
 ---@class Scene:Object
 local Scene = Object:new()
 
-function Scene:init_base()
+function Scene:init()
     self.objects = {}
+    self.id = 0
 end
 
 function Scene:update_objects(dt)
@@ -26,6 +27,8 @@ function Scene:add(object, ...)
     local o = object:new()
     o.sc = self
     o.prop = {}
+    o.id = self.id
+    self.id = self.id+1
     o:init(...)
     table.insert(self.objects, o)
     return o
