@@ -25,11 +25,10 @@ end
 
 function Scene:add(object, ...)
     local o = object:new()
+    o:init(...)
     o.sc = self
-    o.prop = {}
     o.id = self.id
     self.id = self.id+1
-    o:init(...)
     table.insert(self.objects, o)
     return o
 end

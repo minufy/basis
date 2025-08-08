@@ -13,3 +13,5 @@ function Base:init()
     self.sc = nil
     self.prop = {}
 end
+
+return Base
