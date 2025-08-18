@@ -1,12 +1,12 @@
-local Scene = require("src.scene")
+local BaseScene = require("src.scenes.base_scene")
 
----@class Game:Scene
-local Game = Scene:new()
+---@class Game:BaseScene
+local Game = BaseScene:new()
 
 local Player = require("src.objects.player")
 
 function Game:init()
-    Scene.init(self)
+    BaseScene.init(self)
     self:add(Player)
 end
 

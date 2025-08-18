@@ -1,13 +1,14 @@
 ---@diagnostic disable: duplicate-set-field
 require("src.camera")
 require("src.input")
+require("src.log")
 require("src.res")
 require("src.sm")
 require("src.timer")
 require("src.utils")
 
 Object = require("src.object")
-Base = require("src.objects.base")
+BaseObject = require("src.objects.base_object")
 
 local lurker = require("modules.lurker")
 

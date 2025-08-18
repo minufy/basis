@@ -1,12 +1,12 @@
----@class Scene:Object
-local Scene = Object:new()
+---@class BaseScene:Object
+local BaseScene = Object:new()
 
-function Scene:init()
+function BaseScene:init()
     self.objects = {}
     self.id = 0
 end
 
-function Scene:update_objects(dt)
+function BaseScene:update_objects(dt)
     for i = #self.objects, 1, -1 do
         if self.objects[i].prop.remove then
             table.remove(self.objects, i)
@@ -16,14 +16,14 @@ function Scene:update_objects(dt)
     end
 end
 
-function Scene:draw_objects()
+function BaseScene:draw_objects()
     self:sort_z()
     for i, object in pairs(self.objects) do
         object:draw()
     end
 end
 
-function Scene:add(object, ...)
+function BaseScene:add(object, ...)
     local o = object:new()
     o:init(...)
     o.sc = self
@@ -33,14 +33,14 @@ function Scene:add(object, ...)
     return o
 end
 
-function Scene:check_col(a, b)
+function BaseScene:check_col(a, b)
     return a.x < b.x+b.w and
             b.x < a.x+a.w and
             a.y < b.y+b.h and
             b.y < a.y+a.h
 end
 
-function Scene:check_dist(a, b, d)
+function BaseScene:check_dist(a, b, d)
     local ax = a.x+a.w/2
     local ay = a.y+a.h/2
     local bx = b.x+b.w/2
@@ -48,7 +48,7 @@ function Scene:check_dist(a, b, d)
     return math.sqrt((ax-bx)^2+(ay-by)^2) <= d
 end
 
-function Scene:col(a, prop)
+function BaseScene:col(a, prop)
     for i, b in ipairs(self.objects) do
         if b.prop[prop] then
             if a ~= b and self:check_col(a, b) then
@@ -59,7 +59,7 @@ function Scene:col(a, prop)
     return nil
 end
 
-function Scene:dist(a, prop, d)
+function BaseScene:dist(a, prop, d)
     for i, b in ipairs(self.objects) do
         if b.prop[prop] then
             if a ~= b and self:check_dist(a, b, d) then
@@ -70,7 +70,7 @@ function Scene:dist(a, prop, d)
     return nil
 end
 
-function Scene:move_x(a, x, prop)
+function BaseScene:move_x(a, x, prop)
     a.x = a.x+x
     local col = self:col(a, prop)
     if col then
@@ -83,7 +83,7 @@ function Scene:move_x(a, x, prop)
     return col
 end
 
-function Scene:move_y(a, y, prop)
+function BaseScene:move_y(a, y, prop)
     a.y = a.y+y
     local col = self:col(a, prop)
     if col then
@@ -96,11 +96,11 @@ function Scene:move_y(a, y, prop)
     return col
 end
 
-function Scene:sort_z()
+function BaseScene:sort_z()
     local o = #self.objects
     table.sort(self.objects, function(a, b)
         return a.z*o+a.id < b.z*o+b.id
     end)
 end
 
-return Scene
+return BaseScene
